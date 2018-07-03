@@ -107,6 +107,7 @@ Add below code to bundleconfig.json file.
 ```
 
 ### Step 4: Configure the Angular and bundling in .csproj file.
+You can create the build, publish options in .csproj file as below.
 Edit the project file and follow below steps.
 1. Create properties for angular and wwwroot paths as below.
 ```
