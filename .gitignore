@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/Asp.net-core.2.0-Angular-6/v15
+/asp-net-core-angular/.vs/asp-net-core-angular/v15/Server/sqlite3
+/asp-net-core-angular/bin/Debug/netcoreapp2.1
+/asp-net-core-angular/obj
+/.vs
