@@ -174,4 +174,37 @@ Edit the project file and follow below steps.
   </Target>
 ```
 
-Step 5: 
+like these, you can add any npm, dotnet scripts in .csproj file for build automation.
+
+Step 5: Add app.component selector in MVC About view under Home controller as below.
+- Add the minified reference files of Angular application.
+- Add the base reference of url path. So that, Angular rounting will append on these path.
+-- example: http:localhost:4338/Home/About/menu1
+--here menu1 is the routing path from angular application which is appended to Home controller url path of About view.
+```
+<head>
+  <base href="~/Home/About/" />
+ </head>
+<app-root></app-root>
+
+<script asp-src-include="~/js/site.min.js"></script>
+<script asp-src-include="~/css/site.min.css"></script>
+```
+
+Note: if you want to integrate many angular applciations, then make sure to bundle respective project files with different file names. other wise, if you add app-root selector in MVC view, then conflict appears on knowing which SPA app-root need to load.
+
+#### Bypass the mvc route with the Angular routes with SpaRouteExtensions class contains MapSpaFallbackRoute functionalitity helps to stay on same page on angular routes.
+
+Add below code to ```startup.cs``` file
+```
+app.UseSpa(spa =>
+            {
+                spa.ApplicationBuilder.UseMvc(routes =>
+                {
+                    routes.MapSpaFallbackRoute(
+                        name: "spa-fallback",
+                        defaults: new { controller = "Home", action = "About" }
+                    );
+                });
+            });
+```
