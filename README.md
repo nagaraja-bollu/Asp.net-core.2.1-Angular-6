@@ -182,6 +182,7 @@ Step 5: Add app.component selector in MVC About view under Home controller as be
 - Add the base reference of url path. So that, Angular rounting will append on these path.
 -- example: http:localhost:4338/Home/About/menu1
 --here menu1 is the routing path from angular application which is appended to Home controller url path of About view.
+- Add the base reference on building the Angular application ..... ``` ng build --base-href /Url/```
 ```
 <head>
   <base href="~/Home/About/" />
